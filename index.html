@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Praktikum</title>
+    <title>Daftar Praktikum Cyberpunk</title>
     <style>
         * {
             margin: 0;
@@ -13,51 +13,109 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0d1b2a, #1b263b);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, #1a0b2e, #2d1b4e);
             min-height: 100vh;
             padding: 20px;
-            color: white;
+            color: #e0e0e0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        /* Efek glitch background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 20, 147, 0.1) 0%,
+                transparent 50%,
+                rgba(0, 255, 255, 0.1) 100%
+            );
+            z-index: -1;
+            pointer-events: none;
+            animation: glitch 4s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { opacity: 0.3; }
+            5%, 95% { opacity: 0.2; }
+            10% { opacity: 0.25; transform: translate(1px, -1px); }
         }
 
         .container {
             width: 100%;
-            max-width: 800px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(10, 5, 25, 0.7);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(147, 20, 255, 0.2);
+            border: 1px solid rgba(147, 20, 255, 0.3);
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            background: rgba(20, 15, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
             padding: 20px;
-            margin-bottom: 15px;
-            color: white;
+            margin-bottom: 20px;
+            color: #e0e0e0;
             text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(147, 20, 255, 0.2);
             display: flex;
             align-items: center;
-            gap: 20px;
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            gap: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.5s ease forwards;
             opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 20, 147, 0.2),
+                transparent
+            );
+            transition: all 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
         }
 
         .card:hover {
-            transform: translateX(10px) scale(1.05);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+            transform: translateX(15px) scale(1.03);
+            background: rgba(30, 20, 60, 0.8);
+            box-shadow: 0 10px 25px rgba(147, 20, 255, 0.3),
+                       0 0 15px rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.4);
         }
 
         .card-icon {
-            font-size: 2rem;
-            color: #ff6b6b;
+            font-size: 2.5rem;
+            color: #ff14ff;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+        }
+
+        .card:hover .card-icon {
+            color: #00ffff;
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
         }
 
         .card-content {
@@ -65,68 +123,155 @@
         }
 
         .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 20, 147, 0.3);
         }
 
         .card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
+            font-size: 0.95rem;
+            color: #b0b0ff;
+            opacity: 0.85;
         }
 
         @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: translateX(-20px);
+                transform: translateX(-30px);
             }
             to {
                 opacity: 1;
                 transform: translateX(0);
             }
         }
+
+        /* Penundaan animasi */
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1.0s; }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+
+            .card {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .card p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex-direction: column;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .card-icon {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+
+            .card h2 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">🌐</div>
-            <div class="card-content"><h2>PRAKTIKUM 1: Pengenalan HTML dan CSS</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🌐</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 1: Pengenalan HTML dan CSS</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">👤</div>
-            <div class="card-content"><h2>PRAKTIKUM 2: Membuat Portofolio Pribadi</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">👤</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 2: Membuat Portofolio Pribadi</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">📱</div>
-            <div class="card-content"><h2>PRAKTIKUM 3: Responsive Web Design</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">📱</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 3: Responsive Web Design</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">🖼️</div>
-            <div class="card-content"><h2>PRAKTIKUM 4: Galeri Gambar dengan Lightbox</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🖼️</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 4: Galeri Gambar dengan Lightbox</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">📝</div>
-            <div class="card-content"><h2>PRAKTIKUM 5: Formulir</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">📝</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 5: Formulir</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">📰</div>
-            <div class="card-content"><h2>PRAKTIKUM 6: Membuat Blog Sederhana</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">📰</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 6: Membuat Blog Sederhana</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">🔗</div>
-            <div class="card-content"><h2>PRAKTIKUM 7: Navigasi dengan Menu Responsif</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🔗</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 7: Navigasi dengan Menu Responsif</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">🎨</div>
-            <div class="card-content"><h2>PRAKTIKUM 8: Animasi CSS</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🎨</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 8: Animasi CSS</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">🔗</div>
-            <div class="card-content"><h2>PRAKTIKUM 9: Integrasi API Eksternal</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🔗</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 9: Integrasi API Eksternal</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
-        <a href="https://ekz121.github.io/comming-soon/" class="card"><div class="card-icon">💻</div>
-            <div class="card-content"><h2>PRAKTIKUM 10: Pemrograman JavaScript</h2>
-            <p>Semester 2</p></div>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">💻</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 10: Pemrograman JavaScript</h2>
+                <p>Semester 2</p>
+            </div>
         </a>
     </div>
 </body>
