@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Praktikum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+            animation: slideIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .card:hover {
+            transform: translateX(10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: #ff6b6b;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="#" class="card"><div class="card-icon">🌐</div>
+            <div class="card-content"><h2>PRAKTIKUM 1: Pengenalan HTML dan CSS</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">👤</div>
+            <div class="card-content"><h2>PRAKTIKUM 2: Membuat Portofolio Pribadi</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">📱</div>
+            <div class="card-content"><h2>PRAKTIKUM 3: Responsive Web Design</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">🖼️</div>
+            <div class="card-content"><h2>PRAKTIKUM 4: Galeri Gambar dengan Lightbox</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">📝</div>
+            <div class="card-content"><h2>PRAKTIKUM 5: Formulir</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">📰</div>
+            <div class="card-content"><h2>PRAKTIKUM 6: Membuat Blog Sederhana</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">🔗</div>
+            <div class="card-content"><h2>PRAKTIKUM 7: Navigasi dengan Menu Responsif</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">🎨</div>
+            <div class="card-content"><h2>PRAKTIKUM 8: Animasi CSS</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">🔗</div>
+            <div class="card-content"><h2>PRAKTIKUM 9: Integrasi API Eksternal</h2>
+            <p>Semester 2</p></div>
+        </a>
+        <a href="#" class="card"><div class="card-icon">💻</div>
+            <div class="card-content"><h2>PRAKTIKUM 10: Pemrograman JavaScript</h2>
+            <p>Semester 2</p></div>
+        </a>
+    </div>
+</body>
+</html>
