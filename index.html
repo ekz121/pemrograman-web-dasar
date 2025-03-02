@@ -71,10 +71,14 @@
             align-items: center;
             gap: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            animation: slideIn 0.5s ease forwards;
-            opacity: 0;
+            opacity: 0; /* Mulai dengan opacity 0 */
+            transform: translateX(-30px); /* Mulai di luar layar */
             position: relative;
             overflow: hidden;
+        }
+
+        .card.visible {
+            animation: slideIn 0.5s ease forwards; /* Animasi hanya terjadi saat terlihat */
         }
 
         .card::before {
@@ -145,18 +149,6 @@
                 transform: translateX(0);
             }
         }
-
-        /* Penundaan animasi */
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        .card:nth-child(4) { animation-delay: 0.4s; }
-        .card:nth-child(5) { animation-delay: 0.5s; }
-        .card:nth-child(6) { animation-delay: 0.6s; }
-        .card:nth-child(7) { animation-delay: 0.7s; }
-        .card:nth-child(8) { animation-delay: 0.8s; }
-        .card:nth-child(9) { animation-delay: 0.9s; }
-        .card:nth-child(10) { animation-delay: 1.0s; }
 
         /* Responsif */
         @media (max-width: 768px) {
@@ -273,6 +265,53 @@
                 <p>Semester 2</p>
             </div>
         </a>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">📋</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 11: Membuat To-Do List</h2>
+                <p>Semester 2</p>
+            </div>
+        </a>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🎨</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 12: Desain dan Animasi SVG</h2>
+                <p>Semester 2</p>
+            </div>
+        </a>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🖥️</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 13: Pengenalan ke Framework</h2>
+                <p>Semester 2</p>
+            </div>
+        </a>
+        <a href="https://ekz121.github.io/comming-soon/" class="card">
+            <div class="card-icon">🚀</div>
+            <div class="card-content">
+                <h2>PRAKTIKUM 14: Proyek Akhir</h2>
+                <p>Semester 2</p>
+            </div>
+        </a>
     </div>
+
+    <script>
+        // Intersection Observer untuk animasi saat scroll
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Hentikan pengamatan setelah animasi
+                }
+            });
+        }, {
+            threshold: 0.1 // Animasi akan dipicu ketika 10% dari card terlihat
+        });
+
+        cards.forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
